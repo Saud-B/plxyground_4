@@ -1,0 +1,3 @@
+Backend running on http://localhost:3011
+GET /healthz 200 5ms
+POST /login 200 71ms

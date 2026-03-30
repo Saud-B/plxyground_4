@@ -1,0 +1,12 @@
+{
+  "name": "plxyground-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "web": "node server.js"
+  },
+  "dependencies": {
+    "resend": "^6.9.4"
+  }
+}

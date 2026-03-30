@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLXYGROUND Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="banner" class="banner hidden"></div>
+  <section id="login-screen" class="screen"></section>
+  <section id="panel-screen" class="screen hidden">
+    <aside class="sidebar">
+      <h2>PLXY Admin</h2>
+      <button data-page="queue">Queue</button>
+      <button data-page="content">Content</button>
+      <button data-page="users">Users</button>
+      <button data-page="audit">Audit</button>
+      <button data-page="analytics">Analytics</button>
+      <button data-page="alerts">Live Alerts</button>
+      <button data-page="security">Admin Security</button>
+      <button id="signout-btn">Sign out</button>
+    </aside>
+    <main>
+      <header class="topbar">
+        <h3 id="page-title">Queue</h3>
+        <input id="quick-search" placeholder="Quick search" />
+      </header>
+      <div id="error-banner" class="error-banner hidden"></div>
+      <div id="page-content"></div>
+    </main>
+  </section>
+
+  <div id="modal" class="modal hidden">
+    <div class="card">
+      <h4 id="modal-title"></h4>
+      <p id="modal-body"></p>
+      <div class="row">
+        <button id="modal-cancel" class="btn-ghost">Cancel</button>
+        <button id="modal-confirm" class="btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/config.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

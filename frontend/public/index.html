@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLXYGROUND</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="banner" class="banner hidden" aria-live="polite"></div>
+  <main id="app">
+    <section id="landing-screen" class="screen">
+      <header class="hero">
+        <nav class="top-nav">
+          <strong>PLXYGROUND</strong>
+          <div class="top-links">
+            <button data-view="login">Login</button>
+          </div>
+        </nav>
+        <div class="hero-content">
+          <h1>Where creators and brands connect in sports.</h1>
+          <p>Publish your story, get discovered, and collaborate with brands in one moderated platform.</p>
+          <div class="cta-row">
+            <button id="cta-signup" class="btn-primary">Get Started Signup</button>
+            <button id="cta-business" class="btn-ghost">I&apos;m a business</button>
+            <button id="cta-preview" class="btn-ghost">App Preview Mode</button>
+          </div>
+        </div>
+      </header>
+      <section class="trusted-row">
+        <span>Trusted by Nike, Adidas, Puma</span>
+      </section>
+      <footer>
+        <button data-view="terms">Terms</button>
+        <button data-view="privacy">Privacy</button>
+        <button data-view="help">Help Center</button>
+      </footer>
+    </section>
+
+    <section id="auth-screen" class="screen hidden"></section>
+
+    <section id="app-screen" class="screen hidden">
+      <header class="app-header">
+        <h2 id="app-title">Feed</h2>
+        <div class="app-actions">
+          <button id="menu-btn" class="btn-ghost" aria-expanded="false" aria-controls="dashboard-menu">Menu</button>
+          <button id="logout-btn" class="btn-ghost">Logout</button>
+        </div>
+      </header>
+      <section id="dashboard-menu" class="dashboard-menu" aria-label="Dashboard menu">
+        <h3 class="menu-title">Menu</h3>
+        <nav class="tab-nav">
+          <button data-tab="feed">Feed</button>
+          <button data-tab="discovery">Discovery</button>
+          <button data-tab="create">Create</button>
+          <button data-tab="profile">Profile</button>
+          <button data-tab="analytics">Analytics</button>
+          <button data-tab="settings">Settings</button>
+        </nav>
+      </section>
+      <section id="tab-content"></section>
+    </section>
+
+    <section id="terms-screen" class="screen hidden"></section>
+    <section id="privacy-screen" class="screen hidden"></section>
+    <section id="help-screen" class="screen hidden"></section>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3 id="modal-title"></h3>
+      <p id="modal-text"></p>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn-ghost">Cancel</button>
+        <button id="modal-confirm" class="btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/config.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

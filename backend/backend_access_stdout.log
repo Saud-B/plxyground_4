@@ -1,0 +1,7 @@
+Backend running on http://localhost:3011
+GET /healthz 200 9ms
+POST /login 200 118ms
+GET / 200 3ms
+POST / 401 2ms
+GET /queue 401 1ms
+GET /api/does-not-exist 404 4ms
