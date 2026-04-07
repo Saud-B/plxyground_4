@@ -1,10 +1,11 @@
 const express = require('express');
 const { sendEmail } = require('../services/email');
+const { verifyToken } = require('../middleware/auth');
 
 const router = express.Router();
 
 // Test email endpoint
-router.post('/test', async (req, res, next) => {
+router.post('/test', verifyToken, async (req, res, next) => {
   try {
     const to = req.body.to || 'saudb8961@gmail.com';
     const subject = req.body.subject || 'Test email';
