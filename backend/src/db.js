@@ -12,7 +12,8 @@ function initDb() {
   }
   
   if (!supabaseAdmin) {
-    throw new Error('Supabase not initialized. Check environment variables.');
+    console.warn('Warning: Supabase not fully initialized. Database credentials may be missing.');
+    console.warn('Check that NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, and SUPABASE_SERVICE_ROLE_KEY are set.');
   }
   
   db = supabaseAdmin;

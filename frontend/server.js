@@ -1,8 +1,7 @@
-const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 19006;
+const PORT = process.env.PORT || 19006;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const ENV_FILE = path.join(__dirname, '.env');
 
@@ -24,7 +23,7 @@ function parseEnv() {
 }
 
 const env = parseEnv();
-const API_BASE_URL = env.EXPO_PUBLIC_API_BASE_URL || 'http://localhost:3011';
+const API_BASE_URL = env.EXPO_PUBLIC_API_BASE_URL || process.env.EXPO_PUBLIC_API_BASE_URL || 'http://localhost:3011';
 
 function contentType(file) {
   const ext = path.extname(file).toLowerCase();
@@ -41,7 +40,7 @@ function send(res, status, body, type) {
   res.end(body);
 }
 
-const server = http.createServer((req, res) => {
+const requestHandler = (req, res) => {
   if (req.url === '/config.js') {
     return send(res, 200, `window.__APP_CONFIG__ = ${JSON.stringify({ API_BASE_URL })};`, 'application/javascript; charset=utf-8');
   }
@@ -57,8 +56,15 @@ const server = http.createServer((req, res) => {
   }
   const body = fs.readFileSync(filePath);
   return send(res, 200, body, contentType(filePath));
-});
+};
 
-server.listen(PORT, () => {
-  console.log(`Frontend running on http://localhost:${PORT}`);
-});
+// Only listen if not in Vercel environment
+if (process.env.VERCEL !== '1') {
+  const http = require('http');
+  const server = http.createServer(requestHandler);
+  server.listen(PORT, () => {
+    console.log(`Frontend running on http://localhost:${PORT}`);
+  });
+}
+
+module.exports = requestHandler;
